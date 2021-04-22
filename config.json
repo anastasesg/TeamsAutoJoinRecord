@@ -1,0 +1,12 @@
+{
+  "email": "s6190020@aueb.gr",
+  "password": "b1a2b3a4y5a6g7a8",
+
+  "run_at_time": "",
+
+  "check_interval": 10,
+  "auto_leave_after_min": 120,
+  "leave_if_last": true,
+  "leave_threshold_number": "4",
+  "pause_search": true
+}
