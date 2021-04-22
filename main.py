@@ -103,10 +103,12 @@ uuid_regex: str = r"\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-
 
 
 def startRecording():
+    """A method to start recording"""
     subprocess.run(["resources\\OBSCommand.exe", "/startrecording"])
 
 
 def stopRecording():
+    """A method to stop recording"""
     subprocess.run(["resources\\OBSCommand.exe", "/stoprecording"])
 
 
