@@ -526,7 +526,15 @@ if __name__ == "__main__":
         time.sleep(start_delay)
 
     try:
-        main()
+        if "run_until_time" in config and config["run_until_time"] != "":
+            now = datetime.now()
+            run_until = datetime.strptime(config["run_until_time"], "%H:%M").replace(year=now.year, month=now.month,
+                                                                                     day=now.day)
+            print(f"Will run until {run_until}")
+            while now.time() < run_until.time():
+                main()
+        else:
+            main()
     finally:
         if browser is not None:
             browser.quit()
