@@ -183,6 +183,9 @@ def switchToTeamsTab():
 
 
 def preparePage():
+    """
+    A method that removes the element 'toast-container' from the page.
+    """
     try:
         browser.execute_script("document.getElementById('toast-container').remove()")
     except exceptions.JavascriptException:
@@ -306,7 +309,6 @@ def joinMeeting(meeting: Meeting):
         mic_button.click()
         print("The microphone is now off")
 
-    # join_button = waitUntilFound(f"div[id='{meeting.meeting_id}'] > calling-join-button > button", 5)
     join_now_button = waitUntilFound("button[data-tid='prejoin-join-button']", 5)
     if join_now_button is None:
         return None
@@ -449,7 +451,7 @@ def main():
             use_website.click()
 
     print("Waiting for correct page...", end='')
-    if waitUntilFound("#teams-app-bar", 60*5) is None:
+    if waitUntilFound("#teams-app-bar", 60 * 5) is None:
         exit(1)
 
     print("\rFound page, do not click anything on the webpage from now on.")
