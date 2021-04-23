@@ -528,7 +528,7 @@ if __name__ == "__main__":
         time.sleep(start_delay)
 
     try:
-            main()
+        main()
     finally:
         if browser is not None:
             browser.quit()
