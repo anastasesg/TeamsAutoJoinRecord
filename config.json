@@ -7,7 +7,7 @@
   "meeting_mode": 2,
   "organisation_num" : 1,
   "random_delay": false,
-  "check_interval": 60,
+  "check_interval": 10,
 
   "join_message": "",
 
@@ -22,11 +22,7 @@
   "chrome_type": "google-chrome",
 
   "blacklist": [
-    {
-      "team_name": "Εισαγωγή στις Πιθανότητες και Στατιστική με R",
-      "channel_names": [
-      ]
-    }
+
   ],
   "blacklist_meeting_re": ""
 }

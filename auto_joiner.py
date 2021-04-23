@@ -119,7 +119,6 @@ class Meeting:
 
 browser: Optional[webdriver.Chrome] = None
 total_members: Optional[int] = None
-members_count: Optional[int] = None
 config: Optional[dict] = None
 meetings: List[Meeting] = []
 current_meeting: Optional[Meeting] = None
@@ -556,7 +555,7 @@ def stopRecording():
 
 
 def main():
-    global config, meetings, mode, conversation_link, total_members, members_count
+    global config, meetings, mode, conversation_link, total_members
 
     mode = 1
     if "meeting_mode" in config and 0 < config["meeting_mode"] < 4:
@@ -668,13 +667,14 @@ def main():
                     startRecording()
 
         meetings = []
-        if current_meeting is not None:
-            if members_count is not None and members_count > total_members:
-                total_members = members_count
 
-        if "leave_if_last" in config and config['leave_if_last'] and interval_count % 5 == 0 and interval_count > 0:
-            if current_meeting is not None and members_count is not None and total_members is not None:
+        if "leave_if_last" in config and config['leave_if_last'] and interval_count % 6 == 0 and interval_count > 0:
+            members_count = None
+            if current_meeting is not None:
                 members_count = getMeetingMembers()
+                if members_count is not None and members_count > total_members:
+                    total_members = members_count
+            if current_meeting is not None and members_count is not None and total_members is not None:
                 if handleLeaveLogic(members_count, total_members):
                     stopRecording()
                     total_members = None
