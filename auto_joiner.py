@@ -487,13 +487,8 @@ def getMeetingMembers():
     else:
         attendees = 0
 
-    meeting_elems = browser.find_elements_by_css_selector(".one-call")
-    for meeting_elem in meeting_elems:
-        try:
-            meeting_elem.click()
-            break
-        except:
-            continue
+    close_btn = browser.find_element_by_css_selector(".ts-sym.close-button.app-icons-fill-hover.right-pane-header-close.inset-border.inset-border-round.inset-border-themed")
+    close_btn.click()
 
     return sum(participants + attendees)
 
