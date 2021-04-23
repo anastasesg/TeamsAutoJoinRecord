@@ -548,11 +548,11 @@ def handleLeaveLogic(current_members, total_members):
 
 
 def startRecording():
-    subprocess.run(["OBSCommand.exe", "/startrecording"])
+    subprocess.run(["resources\\OBSCommand.exe", "/startrecording"])
 
 
 def stopRecording():
-    subprocess.run(["OBSCommand.exe", "/stoprecording"])
+    subprocess.run(["resources\\OBSCommand.exe", "/stoprecording"])
 
 
 def main():
