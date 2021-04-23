@@ -608,7 +608,7 @@ def main():
 
     print("\rFound page, do not click anything on the webpage from now on.")
     # wait a bit so the meetings are initialized
-    time.sleep(5)
+    time.sleep(2)
 
     if mode != 2:
         preparePage(include_calendar=True)
