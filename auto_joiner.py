@@ -487,6 +487,14 @@ def getMeetingMembers():
     else:
         attendees = 0
 
+    meeting_elems = browser.find_elements_by_css_selector(".one-call")
+    for meeting_elem in meeting_elems:
+        try:
+            meeting_elem.click()
+            break
+        except:
+            continue
+
     return sum(participants + attendees)
 
 
