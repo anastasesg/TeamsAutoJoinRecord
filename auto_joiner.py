@@ -487,8 +487,11 @@ def getMeetingMembers():
     else:
         attendees = 0
 
-    close_btn = browser.find_element_by_css_selector(".ts-sym.close-button.app-icons-fill-hover.right-pane-header-close.inset-border.inset-border-round.inset-border-themed")
-    close_btn.click()
+    try:
+        close_btn = browser.find_element_by_css_selector(".ts-sym.close-button.app-icons-fill-hover.right-pane-header-close.inset-border.inset-border-round.inset-border-themed")
+        close_btn.click()
+    except exceptions.ElementNotInteractableException:
+        pass
 
     return sum(participants + attendees)
 
@@ -506,6 +509,7 @@ def hangup():
         print(f"Left Meeting: {current_meeting.title}")
 
         current_meeting = None
+        stopRecording()
 
         if hangup_thread:
             hangup_thread.cancel()
@@ -679,7 +683,6 @@ def main():
                     total_members = members_count
             if current_meeting is not None and members_count is not None and total_members is not None:
                 if handleLeaveLogic(members_count, total_members):
-                    stopRecording()
                     total_members = None
 
         interval_count += 1
