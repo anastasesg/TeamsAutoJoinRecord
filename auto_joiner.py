@@ -554,11 +554,11 @@ def handleLeaveLogic(current_members, total_members):
 
 
 def startRecording():
-    subprocess.run(["resources\\OBSCommand.exe", "/startrecording"])
+    subprocess.run(["obs-cli", "StartRecording"])
 
 
 def stopRecording():
-    subprocess.run(["resources\\OBSCommand.exe", "/stoprecording"])
+    subprocess.run(["obs-cli", "StopRecording"])
 
 
 def main():
@@ -689,7 +689,7 @@ def main():
         time.sleep(check_interval)
 
 
-if __name__ == "__main__":
+def Main():
     loadConfig()
 
     if 'run_at_time' in config and config['run_at_time'] != "":
@@ -713,3 +713,6 @@ if __name__ == "__main__":
 
         if hangup_thread is not None:
             hangup_thread.cancel()
+
+if __name__ == "__main__":
+    Main()
