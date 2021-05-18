@@ -22,7 +22,12 @@
   "chrome_type": "google-chrome",
 
   "blacklist": [
-
+    {
+      "team_name": "Εισαγωγή στις Πιθανότητες και Στατιστική με R",
+      "channel_names": [
+        "General"
+      ]
+    }
   ],
   "blacklist_meeting_re": ""
 }

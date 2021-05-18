@@ -362,9 +362,7 @@ def decideMeeting():
         else:
             break
 
-    if (current_meeting is None or newest_meetings[0].time_started > current_meeting.time_started) and (
-            current_meeting is None or newest_meetings[0].m_id != current_meeting.m_id) and newest_meetings[
-        0].m_id not in already_joined_ids:
+    if (current_meeting is None or newest_meetings[0].time_started > current_meeting.time_started) and (current_meeting is None or newest_meetings[0].m_id != current_meeting.m_id) and newest_meetings[0].m_id not in already_joined_ids:
         return newest_meetings[0]
 
     return
